@@ -41,6 +41,9 @@ Route::middleware(['auth', 'user-access'])->group(function () {
 Route::middleware(['auth', 'admin-access'])->group(function () {
 
     Route::get('admin/home', 'HomeController@adminHome')->name('admin.home');
+    Route::post('admin/product-store', 'admin\ProductManageController@ProductStore')->name('ProductStore');
+    Route::post('admin/product-update', 'admin\ProductManageController@ProductUpdate')->name('ProductUpdate');
+    Route::get('admin/product-delete/{id}', 'admin\ProductManageController@ProductDelete')->name('ProductDelete');
 });
 
 /*------------------------------------------
@@ -52,4 +55,3 @@ Route::middleware(['auth', 'manager-access'])->group(function () {
 
     Route::get('/manager/home', 'HomeController@managerHome')->name('manager.home');
 });
-

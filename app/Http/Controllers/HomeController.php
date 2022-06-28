@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,7 +34,8 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $data['list'] = Product::get();
+        return view('adminHome',$data);
     }
 
     /**
